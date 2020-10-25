@@ -24,7 +24,6 @@ class IdTitleAdapter(val list: ArrayList<IdTitleDataClass>): RecyclerView.Adapte
         val currentItem = list[position]
 
         // Set text view
-        holder.textViewId.text      = currentItem.id.toString()
         holder.textViewTitle.text   = currentItem.title
     }
 
@@ -32,7 +31,6 @@ class IdTitleAdapter(val list: ArrayList<IdTitleDataClass>): RecyclerView.Adapte
 
 class IdTitleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
-    val textViewId: TextView = itemView.textViewId
     val textViewTitle: TextView = itemView.textViewTitle
 
 } // IdTitleViewHolder

@@ -65,12 +65,10 @@ class DatabaseHelper(context: Context):
     }
 
     // Get
-    open fun rawQuery(query: String?): Cursor? {
+    fun rawQuery(query: String?): Cursor? {
         val db = this.writableDatabase
         val mCursor: Cursor = db.rawQuery(query, null)
-        if (mCursor != null) {
-            mCursor.moveToFirst()
-        }
+        mCursor?.moveToFirst()
         return mCursor
     }
 
