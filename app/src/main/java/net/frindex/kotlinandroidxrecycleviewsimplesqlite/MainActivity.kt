@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
         var categoriesSize: Int = categoriesCursor!!.count
         Log.d("listCategories()", "categoriesSize=" + categoriesSize)
 
-        // Find ListView to populate
+        // Add a list of categories
         categoriesList = ArrayList<IdTitleDataClass>()
         while (categoriesCursor.moveToNext()) {
             val categoryId = categoriesCursor.getInt(0)
@@ -64,10 +64,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Add to list
-        recycler_view.adapter = IdTitleAdapter(categoriesList)
+        recycler_view.adapter = IdTitleAdapter(categoriesList) {
+            categoriesList[it]
+        }
         recycler_view.layoutManager = LinearLayoutManager(this)
         recycler_view.setHasFixedSize(true)
+
     } // listCategories
-
-
 } // MainActivity

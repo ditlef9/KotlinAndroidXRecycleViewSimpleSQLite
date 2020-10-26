@@ -8,23 +8,25 @@ import android.widget.TextView
 import net.frindex.kotlinandroidxrecycleviewsimplesqlite.R
 import kotlinx.android.synthetic.main.adapter_id_title_item_layout.view.*
 
-
-class IdTitleAdapter(val list: ArrayList<IdTitleDataClass>): RecyclerView.Adapter<IdTitleViewHolder>(){
+class IdTitleAdapter(val list: ArrayList<IdTitleDataClass>,val clickLambda: (Int)->Unit) : RecyclerView.Adapter<IdTitleViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IdTitleViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.adapter_id_title_item_layout,parent,false)
         return IdTitleViewHolder(itemView)
     }
 
+
     override fun getItemCount(): Int {
         return list.size
     }
 
+
     override fun onBindViewHolder(holder: IdTitleViewHolder, position: Int) {
         val currentItem = list[position]
-
-        // Set text view
-        holder.textViewTitle.text   = currentItem.title
+        holder.textViewTitle.text = currentItem.title
+        holder.itemView.setOnClickListener {
+            clickLambda(currentItem.id)
+        }
     }
 
 } // IdTitleAdapter
