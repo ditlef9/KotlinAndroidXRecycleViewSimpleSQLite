@@ -16,7 +16,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:listitem="@layout/rva_id_title_item_layout"
+        tools:listitem="@layout/adapter_id_title_item_layout"
         app:layout_constraintTop_toTopOf="parent" />
     <!-- //Categories -->
 

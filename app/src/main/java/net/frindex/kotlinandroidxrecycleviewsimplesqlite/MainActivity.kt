@@ -71,4 +71,10 @@ class MainActivity : AppCompatActivity() {
         recycler_view.setHasFixedSize(true)
 
     } // listCategories
+
+
+    /*- List on click ---------------------------------------------------------------------------- */
+    fun listOnClick(itemID: Int){
+        // TODO: How can I get the program to go here?
+    } // listOnClick
 } // MainActivity
