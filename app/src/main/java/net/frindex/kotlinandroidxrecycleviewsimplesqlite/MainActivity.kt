@@ -14,6 +14,7 @@ import android.database.Cursor
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.facebook.stetho.Stetho
 import kotlinx.android.synthetic.main.activity_main.*
@@ -49,7 +50,7 @@ class MainActivity : AppCompatActivity() {
         db = DatabaseHelper(this)
 
         // Fetch categories
-        var categoriesCursor: Cursor? = db!!.rawQuery("SELECT category_id, category_name FROM categories")
+        var categoriesCursor: Cursor? = db!!.rawQuery("SELECT category_id, category_name FROM categories WHERE category_id > 4")
         var categoriesSize: Int = categoriesCursor!!.count
         Log.d("listCategories()", "categoriesSize=" + categoriesSize)
 
@@ -69,12 +70,14 @@ class MainActivity : AppCompatActivity() {
         }
         recycler_view.layoutManager = LinearLayoutManager(this)
         recycler_view.setHasFixedSize(true)
+        recycler_view.adapter = IdTitleAdapter(categoriesList) {
+            listOnClick(it.toInt())
+        }
 
     } // listCategories
 
-
     /*- List on click ---------------------------------------------------------------------------- */
     fun listOnClick(itemID: Int){
-        // TODO: How can I get the program to go here?
+        Toast.makeText(this@MainActivity, "Item clicked has ID " + itemID, Toast.LENGTH_SHORT).show()
     } // listOnClick
 } // MainActivity

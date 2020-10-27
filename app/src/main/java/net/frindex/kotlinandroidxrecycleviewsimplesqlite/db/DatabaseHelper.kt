@@ -13,7 +13,7 @@ class DatabaseHelper(context: Context):
 
     companion object {
         private val DB_NAME = "kotlinandroidxrecycleviewsimplesqlite"
-        private val DB_VERSIOM = 1;
+        private val DB_VERSIOM = 2;
     }
 
 
@@ -26,7 +26,10 @@ class DatabaseHelper(context: Context):
 
         val q2 = "INSERT INTO categories(category_id, category_name) " +
                 "VALUES " +
-                "(NULL, 'Bread and cereal')," +
+                "(NULL, 'A')," +
+                "(NULL, 'B')," +
+                "(NULL, 'C')," +
+                "(NULL, 'D')," +
                 "(NULL, 'Bread')," +
                 "(NULL, 'Cereals')," +
                 "(NULL, 'Frozen bread and rolls')," +
